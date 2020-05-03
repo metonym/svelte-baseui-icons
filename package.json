@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "baseui": "https://github.com/uber/baseweb.git",
-    "svg-to-svelte": "^0.3.0"
+    "svg-to-svelte": "^0.3.4"
   },
   "repository": {
     "type": "git",

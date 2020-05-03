@@ -1,6 +1,6 @@
 # docs
 
-> 28 octicons from baseui@9.72.0.
+> 28 icons from baseui@9.72.0.
 
 ## Usage
 

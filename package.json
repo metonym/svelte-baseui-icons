@@ -4,18 +4,20 @@
   "license": "MIT",
   "description": "Uber Base UI SVG icons as Svelte components",
   "author": "Eric Liu (https://github.com/metonym)",
-  "svelte": "lib/index.js",
-  "main": "lib/index.js",
+  "svelte": "./lib/index.js",
+  "main": "./lib/index.js",
   "sideEffects": false,
   "scripts": {
+    "dev": "rollup -cw",
+    "predeploy": "yarn prepack && rollup -c",
+    "deploy": "npx gh-pages -d dist",
     "prepack": "node build"
-  },
-  "peerDependencies": {
-    "svelte": "^3.20.x"
   },
   "devDependencies": {
     "baseui": "https://github.com/uber/baseweb.git",
-    "svg-to-svelte": "^0.3.4"
+    "rollup": "^2.34.0",
+    "svelte-readme": "^1.1.0",
+    "svg-to-svelte": "^2.0.0"
   },
   "repository": {
     "type": "git",

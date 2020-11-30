@@ -11,19 +11,23 @@ This library builds icons from [Uber Base Web](https://github.com/uber/baseweb) 
 
 ```bash
 yarn add -D svelte-baseui-icons
+# OR
+npm i -D svelte-baseui-icons
 ```
 
 ## Usage
 
-```html
+```svelte
 <script>
-  import { Alert } from "svelte-baseui-icons";
+  import { Alert, ArrowDown, Filter } from "svelte-baseui-icons";
 </script>
 
-<Alert />
+<Alert width={24} />
+<ArrowDown width={24} />
+<Filter width={24} />
 ```
 
-Refer to [docs/README.md](docs/README.md) for a full list of icons.
+Refer to [ICON_INDEX.md](ICON_INDEX.md) for a full list of icons.
 
 ## API
 
@@ -36,6 +40,21 @@ Refer to [docs/README.md](docs/README.md) for a full list of icons.
 - on:mouseenter
 - on:mouseout
 - on:keydown
+
+## Rendering using `svelte:component`
+
+```svelte
+<script>
+  import * as icons from "svelte-baseui-icons";
+</script>
+
+{#each Object.keys(icons) as icon}
+  <div>
+    <svelte:component title="{icon}" this={icons[icon]} width={24} />
+    {icon}
+  </div>
+{/each}
+```
 
 ## [Changelog](CHANGELOG.md)
 

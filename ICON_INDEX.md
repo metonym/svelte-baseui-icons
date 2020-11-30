@@ -1,6 +1,6 @@
-# docs
+# Icon Index
 
-> 28 icons from baseui@9.72.0.
+> 28 icons from svelte-baseui-icons@https://github.com/uber/baseweb.git.
 
 ## Usage
 
@@ -12,7 +12,7 @@
 <Icon />
 ```
 
-## List of icons by `ModuleName`
+## Icons by `ModuleName`
 
 - Alert
 - ArrowDown

@@ -1,34 +1,16 @@
+const { generateFromFolder, generateIndex } = require("svg-to-svelte");
 const fs = require("fs");
-const pkg = require("./package.json");
-const { cleanDir, generateFromFolder } = require("svg-to-svelte");
+const { name, devDependencies } = require("./package.json");
 
-async function build() {
-  const { moduleNames } = await generateFromFolder(
-    "node_modules/baseui/src/icon/svg",
-    "lib",
-    {
-      clean: true,
-    }
-  );
+(async () => {
+  const lib = "baseui";
+  const { moduleNames } = await generateFromFolder(`node_modules/${lib}/src/icon/svg`);
 
-  await cleanDir("docs");
+  await generateIndex({
+    moduleNames,
+    pkgName: name,
+    pkgVersion: devDependencies[lib],
+    outputFile: "ICON_INDEX.md",
+  });
+})();
 
-  const docs = [
-    "# docs",
-    `> ${moduleNames.length} icons from baseui@9.72.0.`,
-    "## Usage",
-    "```html",
-    `<script>
-       import Icon from "svelte-baseui-icons/lib/{ModuleName}";
-     </script>
-
-     <Icon />`,
-    "```",
-    "## List of icons by `ModuleName`",
-    moduleNames.map((moduleName) => `- ${moduleName}`).join("\n"),
-  ];
-
-  fs.writeFileSync("docs/README.md", docs.join("\n"));
-}
-
-build();
